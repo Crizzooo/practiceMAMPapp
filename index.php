@@ -22,11 +22,26 @@
 
     $sql = "CREATE DATABASE IF NOT EXISTS $dbName";
     $db->exec($sql);
-    echo "Database created succesffully<br>";
+    if ($db->query("use $dbName")) {
+      echo "PDO connection to $dbName is successful!<br>";
+    }
   } catch (PDOException $e) {
     echo 'Connection failed: '.$e->getMessage();
   }
 
-  echo 'Connected successfully.';
+
+  // Start checking to seed the database
+  // If tables are less than 4 or the tables have no rows, lets run a seed
+  $res = $db->query("SHOW TABLES");
+  $tableCount = $res->rowCount();
+  if ($tableCount < 4){
+    echo 'We need to create the tables!<br>';
+    include './db/index.php';
+  } else {
+    echo 'No Seed needed!<br>';
+  }
+
+  echo 'connection closed.';
+
  ?>
 </html>
