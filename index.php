@@ -39,7 +39,7 @@
     echo 'No Seed needed!<br>';
   }
 
-  echo 'connection closed.';
+  echo '...connection closed.';
 
  ?>
 </html>
