@@ -13,8 +13,6 @@
   $password ='root';
 
   $dbName = "FruitAnalysis";
-
-
   try {
     $db = new PDO($dsn, $user, $password);
     // set the PDO error mode to exception
@@ -23,7 +21,7 @@
     $sql = "CREATE DATABASE IF NOT EXISTS $dbName";
     $db->exec($sql);
     if ($db->query("use $dbName")) {
-      echo "PDO connection to $dbName is successful!<br>";
+      echo "PDO connection to $dbName is successful!  <br>";
     }
   } catch (PDOException $e) {
     echo 'Connection failed: '.$e->getMessage();

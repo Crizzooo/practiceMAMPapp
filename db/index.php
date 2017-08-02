@@ -1,8 +1,7 @@
 <?php
   echo 'Creating Tables...<br>';
-  createTables();
 
-  function createTables() {
+  if (1) {
     include 'countries.php';
   }
 
