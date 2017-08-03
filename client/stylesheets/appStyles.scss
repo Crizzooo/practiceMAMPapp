@@ -35,7 +35,7 @@ $cardHeaderHeight: 66px;
 .card {
   height: 500px;
   width: 333px;
-  background-color: $color-neutral-light;
+  background-color: #EEE;
   border-radius: 2px;
   overflow: hidden;
 }
@@ -48,7 +48,6 @@ $cardHeaderHeight: 66px;
 
 .filterContainer {
   color: black;
-  background-color: #EEE;
   padding: 2vh;
   height: 100%;
 }
