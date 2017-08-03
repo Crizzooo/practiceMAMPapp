@@ -38,7 +38,17 @@ $Tables = [
   "Fruits"=>[
     "schema"=>["name", "classification", "month_of_cultivation"],
     "rows"=>[
-
+      ["Blueberries", "Berries", "April"],
+      ["Cranberries", "Berries", "April"],
+      ["Grapes", "Berries", "March"],
+      ["Raspberries", "Berries", "April"],
+      ["Pineapples", "Citrus", "May"],
+      ["Watermelons", "Melons", "June"],
+      ["Oranges", "Citrus", "July"],
+      ["Lemons", "Citrus", "August"],
+      ["Apples", "Drupes", "September"],
+      ["Plums", "Drupes", "October"],
+      ["Melons", "Melons", "June"]
     ]
   ]
 ];
