@@ -12,16 +12,11 @@
     profit_loss INT NULL,
     country_id INT UNSIGNED NOT NULL,
     fruit_id INT UNSIGNED NOT NULL,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (ID),
+    FOREIGN KEY (COUNTRY_ID) references Countries(id),
+    FOREIGN KEY (FRUIT_ID) references Fruits(id)
   )";
 
-  $db->query($sql);
-
-  //TODO: Set profit_loss to be an automated generated column?
-  //https://dba.stackexchange.com/questions/74823/how-to-subtract-fields-and-insert-the-value-in-other-field-automatically
-  $sql = "UPDATE Records
-    SET profit_loss = (total_revenue - total_cost);
-  )";
   $db->query($sql);
 
   echo 'Records created! <br>'

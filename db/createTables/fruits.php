@@ -7,7 +7,9 @@
     name TEXT NOT NULL,
     classification TEXT NOT NULL,
     month_of_cultivation TEXT NOT NULL,
-    PRIMARY KEY (ID)
+    region_id INT UNSIGNED NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (REGION_ID) references Regions(id)
   )";
 
   $db->query($sql);
