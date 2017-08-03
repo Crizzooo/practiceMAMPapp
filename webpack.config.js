@@ -5,7 +5,7 @@ module.exports = {
   entry: './',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client/dist/')
+    path: path.resolve(__dirname, 'client/public/dist')
   },
   context: __dirname,
   devtool: 'source-map',

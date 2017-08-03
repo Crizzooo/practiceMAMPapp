@@ -1,8 +1,11 @@
 import React from 'react';
 
+import Header from './components/Header.jsx';
+import './stylesheets/appStyles.scss';
+
 const App = (props) => (
   <div className="appContainer">
-    <span>Hey! I'm part of a react component!</span>
+    <Header />
   </div>
 );
 

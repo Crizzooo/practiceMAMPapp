@@ -1,0 +1,16 @@
+$color-primary: #2800D7;
+
+* {
+  font-family: BWHaas;
+}
+
+.header {
+  width: 100%;
+  background-color: $color-primary;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  color: #FFF;
+}

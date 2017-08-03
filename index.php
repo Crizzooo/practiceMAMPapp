@@ -2,6 +2,7 @@
 <html>
    <head>
     <title>PHP Test</title>
+    <link rel="stylesheet" href="client/public/index.css">
    </head>
    <body>
       <div id="app">
@@ -18,7 +19,7 @@
       $password ='root';
 
       function console_log($string){
-         echo'<script>console_log("'.$string.'");</script>';
+         echo'<script>console.log("'.$string.'");</script>';
       }
       console_log('hello there!');
 
@@ -44,6 +45,6 @@
       console_log('connection closed.');
 
      ?>
-     <script type="text/javascript" src="client/dist/bundle.js"></script>
+     <script type="text/javascript" src="client/public/dist/bundle.js"></script>
    </body>
 </html>
