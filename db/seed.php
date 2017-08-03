@@ -1,20 +1,20 @@
 <?php
-  echo 'Seeding Database...<br>';
+  console_log('Seeding Database...');
 
   $res = $db->query("SHOW TABLES");
   $tableCount = $res->rowCount();
   if ($tableCount > 0) {
-    echo 'Dropping Tables...<br>';
+    console_log('Dropping Tables...');
     include 'dropTables.php';
-    echo 'Dropping Complete...';
+    console_log('Dropping Complete...');
   }
-  echo 'Creating Tables...<br>';
+  console_log('Creating Tables...');
   include 'createTables/index.php';
-  echo 'Creating Complete...';
+  console_log('Creating Complete...');
 
-  echo 'Seeding Tables...<br>';
+  console_log('Seeding Tables...');
   include 'seedTables.php';
 
-  echo 'Seeding Complete...';
-  echo 'Seed Script Completed!<br>';
+  console_log('Seeding Complete...');
+  console_log('Seed Script Completed!');
 ?>

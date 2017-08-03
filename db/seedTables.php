@@ -16,13 +16,13 @@ foreach ($Tables as $TableName=>$TableInfo){
   $final .=")";
 
   $sql.=$next.$final;
-  echo $sql."<br>";
+  console_log($sql);
 
   $stmt = $db->prepare($sql);
   foreach ($TableInfo["rows"] as $row){
     foreach( $row as $index=>$data){
       $columnName = $TableInfo["schema"][$index];
-      echo 'binding: '."':'".$columnName.$data."<br>";
+      console_log('binding: '."':'".$columnName.$data);
       //NOTE: Because bindParam() binds a PHP Variable to a correspodning placement as a reference, and will only be evaluated at the time execute() is called, I need to refer to the exact data point with $row[$index] reference, rather than creating a new variable each time such as $data = $row[$index], and using the $data variable
       // TODO: Make quiver notebook note on this
       $stmt->bindParam(':'.$columnName, $row[$index]);

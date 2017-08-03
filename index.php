@@ -17,6 +17,11 @@
       $user = 'root';
       $password ='root';
 
+      function console_log($string){
+         echo'<script>console.log("'.$string.'");</script>';
+      }
+      console_log('hello there!');
+
       $dbName = "FruitAnalysis";
       try {
         $db = new PDO($dsn, $user, $password);
@@ -26,17 +31,17 @@
         $sql = "CREATE DATABASE IF NOT EXISTS $dbName";
         $db->exec($sql);
         if ($db->query("use $dbName")) {
-          echo "PDO connection to $dbName is successful!  <br>";
+          console_log("PDO connection to $dbName is successful!");
         }
       } catch (PDOException $e) {
-        echo 'Connection failed: '.$e->getMessage();
+        console_log('Connection failed: '.$e->getMessage());
       }
 
 
       // Seed Database
       include './db/seed.php';
 
-      echo 'connection closed.';
+      console_log('connection closed.');
 
      ?>
      <script type="text/javascript" src="client/dist/bundle.js"></script>
