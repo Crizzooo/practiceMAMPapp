@@ -12,5 +12,9 @@
   include 'createTables/index.php';
   echo 'Creating Complete...';
 
-  echo 'Seed completed!<br>';
+  echo 'Seeding Tables...<br>';
+  include 'seedTables.php';
+
+  echo 'Seeding Complete...';
+  echo 'Seed Script Completed!<br>';
 ?>

@@ -9,10 +9,11 @@ $seedCommands = [
     "Austrailia",
     "Africa"
   ],
-]
+];
 
-$stmt = $db->prepare("INSERT INTO Regions (name) VALUES (?)");
+$stmt = $db->prepare("INSERT INTO Regions (name) VALUES (:name)");
+$stmt->bindParam(':name', $countryName);
 foreach ($seedCommands["regions"] as $countryName){
-  echo $countryName;
+  $stmt->execute();
 }
 ?>
