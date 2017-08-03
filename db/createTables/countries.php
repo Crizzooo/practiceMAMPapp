@@ -1,11 +1,11 @@
 <?php
-  echo 'Creating Countries...<br>';
+  console_log('Creating Countries..');
 
   $sql = "DROP TABLE IF EXISTS Countries";
   if ($db->query($sql)) {
-    echo 'Countries table dropped! <br>';
+    console_log('Countries table dropped!');
   } else {
-    print_r($db->errorInfo());
+    console_log(print_r($db->errorInfo()));
   }
 
   $sql = "CREATE TABLE IF NOT EXISTS Countries (
@@ -17,8 +17,8 @@
   )";
 
   if ($db->query($sql)) {
-    echo 'Countries created! <br>';
+    console_log('Countries created!');
   } else {
-    print_r($db->errorInfo());
+    console_log(print_r($db->errorInfo()));
   }
  ?>

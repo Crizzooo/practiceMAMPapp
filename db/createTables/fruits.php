@@ -1,5 +1,5 @@
 <?php
-  echo 'Creating Fruits...<br>';
+  console_log('Creating Fruits...');
 
   //TODO: Set up Many to Many relationship with Countries
   $sql = "CREATE TABLE IF NOT EXISTS Fruits (
@@ -11,5 +11,5 @@
   )";
 
   $db->query($sql);
-  echo 'Fruits created! <br>'
+  console_log('Fruits created!');
  ?>

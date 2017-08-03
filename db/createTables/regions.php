@@ -1,5 +1,5 @@
 <?php
-  echo 'Creating Regions...<br>';
+  console_log('Creating Regions...');
 
   // TODO: Cleanup these notes
   // NOTE: As part of this seed file, I was going to Drop all the tables, recreate them, and then reinstantiate the rows every time.
@@ -13,5 +13,5 @@
   )";
 
   $db->query($sql);
-  echo 'Regions created! <br>'
+  console_log('Regions created!');
  ?>

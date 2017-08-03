@@ -18,7 +18,7 @@
       $password ='root';
 
       function console_log($string){
-         echo'<script>console.log("'.$string.'");</script>';
+         echo'<script>console_log("'.$string.'");</script>';
       }
       console_log('hello there!');
 

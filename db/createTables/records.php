@@ -1,5 +1,5 @@
 <?php
-  echo 'Creating Records...<br>';
+  console_log('Creating Records...');
 
   //TODO: Set up Many to Many relationship with Countries
 
@@ -19,5 +19,5 @@
 
   $db->query($sql);
 
-  echo 'Records created! <br>'
+  console_log('Records created!');
  ?>
