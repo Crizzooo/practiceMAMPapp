@@ -28,18 +28,10 @@
   }
 
 
-  // Start checking to seed the database
-  // If tables are less than 4 or the tables have no rows, lets run a seed
-  $res = $db->query("SHOW TABLES");
-  $tableCount = $res->rowCount();
-  if ($tableCount < 4){
-    echo 'We need to create the tables!<br>';
-    include './db/index.php';
-  } else {
-    echo 'No Seed needed!<br>';
-  }
+  // Seed Database
+  include './db/seed.php';
 
-  echo '...connection closed.';
+  echo 'connection closed.';
 
  ?>
 </html>

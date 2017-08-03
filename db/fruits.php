@@ -1,7 +1,6 @@
 <?php
   echo 'Creating Fruits...<br>';
 
-  //TODO: Drop Table if Exists for seeding
   //TODO: Set up Many to Many relationship with Countries
   $sql = "CREATE TABLE IF NOT EXISTS Fruits (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
