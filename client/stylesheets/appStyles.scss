@@ -1,7 +1,13 @@
 $color-primary: #2800D7;
+$color-neutral: #FAFAFA;
 
 * {
   font-family: BWHaas;
+}
+
+.appContainer {
+  background-color: $color-neutral;
+  height: 100%;
 }
 
 .header {
@@ -13,4 +19,12 @@ $color-primary: #2800D7;
   max-width: 1080px;
   margin: 0 auto;
   color: #FFF;
+}
+
+.header > .container {
+  padding: 2vh 0;
+}
+
+.title {
+  margin-left: 3vw;
 }
