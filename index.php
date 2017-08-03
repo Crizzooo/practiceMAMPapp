@@ -4,6 +4,9 @@
     <title>PHP Test</title>
    </head>
    <body>
+      <div id="app">
+
+      </div>
      <?php
       /*
         mysql:host=localhost;dbname=test;port=3306;charset=utf8
@@ -36,6 +39,6 @@
       echo 'connection closed.';
 
      ?>
-     <script type="text/javascript" src="index.js"></script>
+     <script type="text/javascript" src="client/dist/bundle.js"></script>
    </body>
 </html>
