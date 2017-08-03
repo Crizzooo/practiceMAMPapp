@@ -1,15 +1,17 @@
 <?php
 
+// NOTE: I learned that I can specify Id's here, but then if I add a record without specifying an id, it will start with the last one and auto increment. If I drop the auto increment, I wonder what default behavior is? Looks like it will start with the highest ID and increment it. If I leave Africa at 11 but something else at 15, the next record will be 16.
+// TODO: Make note in quiver notebook on this
 $Tables = [
   "Regions"=> [
-    "schema"=>["name"],
+    "schema"=>["name", "id"],
     "rows"=>[
-      ["North America"],
-      ["South America"],
-      ["Europe"],
-      ["Asia"],
-      ["Austrailia"],
-      ["Africa"]
+      ["North America", 1],
+      ["South America", 2],
+      ["Europe", 3],
+      ["Africa", 4],
+      ["Asia", 5],
+      ["Austrailia", 6]
     ]
   ],
   "Countries"=>[
@@ -42,11 +44,11 @@ foreach ($Tables as $TableName=>$TableInfo){
       $columnName = $TableInfo["schema"][$index];
       echo 'binding: '."':'".$columnName.$data."<br>";
       //NOTE: Because bindParam() binds a PHP Variable to a correspodning placement as a reference, and will only be evaluated at the time execute() is called, I need to refer to the exact data point with $row[$index] reference, rather than creating a new variable each time such as $data = $row[$index], and using the $data variable
+      // TODO: Make quiver notebook note on this
       $stmt->bindParam(':'.$columnName, $row[$index]);
     }
     $stmt->execute();
   }
 }
-
 
 ?>
