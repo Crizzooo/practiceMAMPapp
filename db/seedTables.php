@@ -17,7 +17,28 @@ $Tables = [
   "Countries"=>[
     "schema"=>["name", "region_id"],
     "rows"=>[
-      ["USA", "1"]
+      ["USA", 1],
+      ["Canada", 1],
+      ["Mexico", 2],
+      ["Chile", 2],
+      ["Columbia", 2],
+      ["Belgium", 3],
+      ["Germany", 3],
+      ["Italy", 3],
+      ["Africa", 4],
+      ["South Africa", 4],
+      ["Liberia", 4],
+      ["Cote D'Ivoire", 4],
+      ["China", 5],
+      ["Japan", 5],
+      ["Thailand", 5],
+      ["Austrailia", 6]
+    ]
+  ],
+  "Fruits"=>[
+    "schema"=>["name", "classification", "month_of_cultivation"],
+    "rows"=>[
+
     ]
   ]
 ];
