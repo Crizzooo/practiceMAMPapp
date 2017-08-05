@@ -1,15 +1,17 @@
 import React from 'react';
+import store from '../store.js';
 
-const FilterCard = () => (
+import { logThis } from '../reducers/filterReducer.js';
+
+const FilterCard = (props) => (
   <div className="card shadow-bottom-1">
-    <div className="header">
+    <div className="header"
+         style={{'backgroundColor': props.headerColor}}>
       <h1 className="">Fruits</h1>
     </div>
     <div className="filterContainer">
       <ul>
-        <li> Hi </li>
-        <li> Hi 2 </li>
-        <li> Hi 3 </li>
+        <li><input type="checkbox" onClick={ ()=>store.dispatch(logThis('hi'))}></input><span>Hi</span></li>
       </ul>
     </div>
   </div>
