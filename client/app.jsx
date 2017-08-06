@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store.js';
 
 import Header from './components/Header.jsx';
-import FilterCard from './components/FilterCard.jsx';
+import LocationsCard from './features/LocationsCard.jsx';
 
 import './stylesheets/appStyles.scss';
 import './stylesheets/shadows.scss';
@@ -14,7 +14,7 @@ const App = (props) => (
     <div className="appContainer">
       <Header />
       <div className="content container">
-        <FilterCard name="hey"/>
+        <LocationsCard />
       </div>
     </div>
   </Provider>

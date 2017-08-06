@@ -7,12 +7,10 @@ const FilterCard = (props) => (
   <div className="card shadow-bottom-1">
     <div className="header"
          style={{'backgroundColor': props.headerColor}}>
-      <h1 className="">Fruits</h1>
+      <h1 className="">{ props.headerName }</h1>
     </div>
     <div className="filterContainer">
-      <ul>
-        <li><input type="checkbox" onClick={ ()=>store.dispatch(logThis('hi'))}></input><span>Hi</span></li>
-      </ul>
+      { props.filters }
     </div>
   </div>
 );
