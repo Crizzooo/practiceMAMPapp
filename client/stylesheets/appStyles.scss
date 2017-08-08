@@ -49,5 +49,8 @@ $cardHeaderHeight: 66px;
 .filterContainer {
   color: black;
   padding: 2vh;
-  height: 100%;
+}
+
+.card.filter {
+  height: auto;
 }

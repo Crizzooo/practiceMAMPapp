@@ -1,15 +1,12 @@
+import R from 'ramda';
+
 /* Action Types */
-const LOG_THIS = 'LOG_THIS';
 const CHANGE_GROUP = 'CHANGE_GROUP';
+const TOGGLE_COUNTRY = 'TOGGLE_COUNTRY';
+const TOGGLE_REGION = 'TOGGLE_REGION';
+const TOGGLE_ALL_REGIONS = 'TOGGLE_ALL_REGIONS';
 
 /* Action Creators */
-export const logThis = (msg) => {
-  return {
-    type: LOG_THIS,
-    msg: msg
-  };
-};
-
 export const changeGroupBy = (newGroup) => {
   return {
     type: CHANGE_GROUP,
@@ -17,27 +14,66 @@ export const changeGroupBy = (newGroup) => {
   }
 };
 
+export const toggleCountry = (region, country) => {
+  return {
+    type: TOGGLE_COUNTRY,
+    region,
+    country
+  }
+}
+
+export const toggleRegion = (region) => {
+  return {
+    type: TOGGLE_REGION,
+    region
+  };
+}
+
+export const toggleAllRegions = () => {
+  return {
+    type: TOGGLE_ALL_REGIONS
+  };
+}
+
 /* Initial State */
 const initialState = {
   regions: {
     "North America": {
-
+      "USA": false,
+      "Canada": false,
+      "Mexico": false,
+      selectedAll: false
     },
     "South America": {
-
+      "Chile": false,
+      "Mexico": false,
+      "Chile": false,
+      "Columbia": false,
+      selectedAll: false
     },
     "Europe": {
-
+      "Belgium": false,
+      "Germany": false,
+      "Italy": false,
+      selectedAll: false
     },
     "Africa": {
-
+      "Liberia": false,
+      "Cote D'Ivoire": false,
+      "South Africa": false,
+      selectedAll: false
     },
     "Asia": {
-
+      "China": false,
+      "Japan": false,
+      "Thailand": false,
+      selectedAll: false
     },
     "Austrailia": {
-
-    }
+      "Austrailia": false,
+      selectedAll: false
+    },
+    selectedAll: false
   },
   fruits: {
     classification: {
@@ -65,11 +101,41 @@ const initialState = {
 export default (state = initialState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
-    case LOG_THIS:
-        console.log('hi');
-        newState.msg = action.msg;
+
+    case TOGGLE_COUNTRY:
+        newState.regions = Object.assign({}, state.regions);
+        newState.regions[action.region][action.country] = !newState.regions[action.region][action.country];
+        // If region all selected is true, turn it off
+        if (newState.regions[action.region].selectedAll) {
+          newState.regions[action.region].selectedAll = false;
+        }
+        return newState;
+
+    case TOGGLE_REGION:
+        newState.regions = Object.assign({}, state.regions);
+        newState.regions[action.region].selectedAll = !newState.regions[action.region].selectedAll;
+        R.forEachObjIndexed( (countryVal, countryName) => {
+          newState.regions[action.region][countryName] = newState.regions[action.region].selectedAll;
+        }, newState.regions[action.region]);
+        // If region all selected is true, turn it off
+        return newState;
+
+    case TOGGLE_ALL_REGIONS:
+        newState.regions = Object.assign({}, state.regions);
+        console.log('old truth: ', newState.regions.selectedAll);
+        let newVal = !newState.regions.selectedAll;
+        newState.regions.selectedAll = !newState.regions.selectedAll;
+        R.forEachObjIndexed( (regionObj, regionName) => {
+          if (regionName == 'selectedAll') return;
+
+          console.log('region obj: ', regionObj);
+          regionObj.selectedAll = newVal;
+        }, newState.regions);
+        return newState;
 
     default:
         return newState;
   }
+
+  // TODO: write functions to toggle all regions and to toggle all countries
 };

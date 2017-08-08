@@ -4,7 +4,7 @@ import store from '../store.js';
 import { logThis } from '../reducers/filterReducer.js';
 
 const FilterCard = (props) => (
-  <div className="card shadow-bottom-1">
+  <div className="card filter shadow-bottom-1">
     <div className="header"
          style={{'backgroundColor': props.headerColor}}>
       <h1 className="">{ props.headerName }</h1>
