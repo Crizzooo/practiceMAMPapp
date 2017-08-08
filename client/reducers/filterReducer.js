@@ -5,6 +5,8 @@ const CHANGE_GROUP = 'CHANGE_GROUP';
 const TOGGLE_COUNTRY = 'TOGGLE_COUNTRY';
 const TOGGLE_REGION = 'TOGGLE_REGION';
 const TOGGLE_ALL_REGIONS = 'TOGGLE_ALL_REGIONS';
+const TOGGLE_FRUIT = 'TOGGLE_FRUIT';
+const TOGGLE_ALL_FRUITS = 'TOGGLE_ALL_FRUITS';
 
 /* Action Creators */
 export const changeGroupBy = (newGroup) => {
@@ -29,10 +31,25 @@ export const toggleRegion = (region) => {
   };
 }
 
+//TODO: Update these to take a specific value. Then after turning 'Select All' true, have any calls to toggle fruits / countries send a false value to 'toggleAll' unless all fruits / countries are true
 export const toggleAllRegions = () => {
   return {
     type: TOGGLE_ALL_REGIONS
   };
+}
+
+export const toggleFruit = (fruit) => {
+  return {
+    type: TOGGLE_FRUIT,
+    fruit
+  }
+}
+
+//TODO: Update these to take a specific value. Then after turning 'Select All' true, have any calls to toggle fruits / countries send a false value to 'toggleAll' unless all fruits / countries are true
+export const toggleAllFruits = () => {
+  return {
+    type: TOGGLE_ALL_FRUITS
+  }
 }
 
 /* Initial State */
@@ -76,11 +93,18 @@ const initialState = {
     selectedAll: false
   },
   fruits: {
-    classification: {
-      "Tropical": {
-
-      }
-    }
+    "Blueberries": false,
+    "Cranberries": false,
+    "Grapes": false,
+    "Raspberries": false,
+    "Pineapples": false,
+    "Watermelons": false,
+    "Oranges": false,
+    "Lemons": false,
+    "Apples": false,
+    "Plums": false,
+    "Melons": false,
+    "selectedAll": false
   },
   displayBy: {
     currentDisplay: 'Country'
@@ -133,9 +157,23 @@ export default (state = initialState, action) => {
         }, newState.regions);
         return newState;
 
+    case TOGGLE_FRUIT:
+        newState.fruits = Object.assign({}, state.fruits);
+        newState.fruits[action.fruit] = !newState.fruits[action.fruit];
+        return newState;
+
+    case TOGGLE_ALL_FRUITS:
+        newState.fruits = Object.assign({}, state.fruits);
+        newState.fruits.selectedAll = !newState.fruits.selectedAll;
+        R.forEachObjIndexed( (fruitVal, fruitName) => {
+          newState.fruits[fruitName] = newState.fruits.selectedAll;
+        }, newState.fruits);
+        return newState;
+
     default:
         return newState;
   }
 
-  // TODO: write functions to toggle all regions and to toggle all countries
+  // Write curried function to 'toggleAll' properties in each category of state and reduce redundancies in this reducer
+  // TODO: improve 'Toggle All' UX
 };

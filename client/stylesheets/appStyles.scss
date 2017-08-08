@@ -30,6 +30,7 @@ $cardHeaderHeight: 66px;
 
 .container.content {
   padding: 5vh 0;
+  display: flex;
 }
 
 .card {
@@ -38,6 +39,7 @@ $cardHeaderHeight: 66px;
   background-color: #EEE;
   border-radius: 2px;
   overflow: hidden;
+  margin: 0 1.33em;
 }
 
 .card > .header {
